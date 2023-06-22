@@ -118,7 +118,7 @@ class Radicalmart extends CMSPlugin
 			$products_images_enable = $this->params->get('products_images_enable', 1);
 
 			// Add products to urls arrays
-			$products   = array();
+			$products = array();
 
 			foreach ($rows as $row)
 			{
@@ -170,11 +170,11 @@ class Radicalmart extends CMSPlugin
 		$model->setState('params', Factory::getApplication()->getParams());
 		$model->setState('filter.published', 1);
 
-		// Check exclude
-		if ($this->params->get('categories_exclude'))
+		// Check include
+		if ($this->params->get('categories_include'))
 		{
-			$model->setState('filter.item_id', $this->params->get('categories_exclude'));
-			$model->setState('filter.item_id.include', false);
+			$model->setState('filter.item_id', $this->params->get('categories_include'));
+			$model->setState('filter.item_id.include', $this->params->get('categories_exclude', false));
 		}
 
 		return $model->getItems();

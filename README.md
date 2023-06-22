@@ -1,1 +1,1 @@
-# RadicalMart Import
+# RadicalMart sitemap for JLSitemap

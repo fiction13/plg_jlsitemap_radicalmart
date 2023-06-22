@@ -154,4 +154,11 @@
             </fieldset>
         </fields>
     </config>
+
+    <!-- Update server -->
+	<updateservers>
+		<server type="extension" priority="1" name="JLSitemap - RadicalMart">
+			https://sovmart.ru/update?element=plg_jlsitemap_radicalmart
+		</server>
+	</updateservers>
 </extension>

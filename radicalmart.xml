@@ -99,13 +99,13 @@
                     <option value="0">JNO</option>
                     <option value="1">JYES</option>
                 </field>
-                <field name="categories_exclude" type="radio"
-                       label="PLG_JLSITEMAP_RADICALMART_PARAMS_CATEGORIES_EXCLUDE"
-                       default="0"
+                <field name="categories_mode" type="radio"
+                       label="PLG_JLSITEMAP_RADICALMART_PARAMS_CATEGORIES_MODE"
+                       default="1"
                        class="btn-group"
                        showon="categories_enable:1">
-                    <option value="0">PLG_JLSITEMAP_RADICALMART_PARAMS_CATEGORIES_EXCLUDE_0</option>
-                    <option value="1">PLG_JLSITEMAP_RADICALMART_PARAMS_CATEGORIES_EXCLUDE_1</option>
+                    <option value="0">PLG_JLSITEMAP_RADICALMART_PARAMS_CATEGORIES_MODE_0</option>
+                    <option value="1">PLG_JLSITEMAP_RADICALMART_PARAMS_CATEGORIES_MODE_1</option>
                 </field>
                 <field
                         name="categories_include"

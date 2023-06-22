@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ @package   JLSitemap - RadicalMart
+  ~ @version   1.0.0
+  ~ @author    Dmitriy Vasyukov - https://fictionlabs.ru
+  ~ @copyright Copyright (c) 2023 Fictionlabs. All rights reserved.
+  ~ @license   GNU/GPL license: http://www.gnu.org/copyleft/gpl.html
+  ~ @link      https://fictionlabs.ru/
+  -->
+
+<extension version="3.9" type="plugin" group="jlsitemap" method="upgrade">
+    <name>PLG_JLSITEMAP_RADICALMART</name>
+    <creationDate>June 2023</creationDate>
+    <author>Dmitriy Vasyukov</author>
+    <copyright>Copyright (C) 2005 - 2022 Open Source Matters. All rights reserved.</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <authorEmail>info@fictionlabs.ru</authorEmail>
+    <authorUrl>https://fictionlabs.ru</authorUrl>
+    <version>1.0.0</version>
+    <description>PLG_JLSITEMAP_RADICALMART_DESCRIPTION</description>
+    <scriptfile>script.php</scriptfile>
+    <namespace path="src">Joomla\Plugin\JLSitemap\RadicalMart</namespace>
+
+    <!-- Plugin languages -->
+    <languages folder="language">
+        <language tag="en-GB">en-GB/plg_jlsitemap_radicalmart.ini</language>
+        <language tag="en-GB">en-GB/plg_jlsitemap_radicalmart.sys.ini</language>
+        <language tag="ru-RU">ru-RU/plg_jlsitemap_radicalmart.ini</language>
+        <language tag="ru-RU">ru-RU/plg_jlsitemap_radicalmart.sys.ini</language>
+    </languages>
+
+    <!-- Plugin files -->
+    <files>
+        <folder plugin="radicalmart">src</folder>
+        <folder>services</folder>
+        <folder>language</folder>
+    </files>
+
+    <!-- Config parameter -->
+    <config>
+        <fields name="params" addfieldprefix="Joomla\Component\RadicalMart\Administrator\Field">
+            <fieldset name="products" label="PLG_JLSITEMAP_RADICALMART_PARAMS_PRODUCTS">
+                <field name="products_enable" type="radio"
+                       label="PLG_JLSITEMAP_RADICALMART_PARAMS_ENABLE"
+                       default="1"
+                       class="btn-group btn-group-yesno">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field
+                        name="products_categories_include"
+                        type="categories"
+                        label="PLG_JLSITEMAP_RADICALMART_PARAMS_PRODUCT_CATEGORIES_INCLUDE"
+                        filter="integer"
+                        layout="joomla.form.field.list-fancy-select"
+						multiple="true"
+                        showon="products_enable:1">
+                    <option value="1">JGLOBAL_ROOT_PARENT</option>
+                </field>
+                <field name="products_images_enable" type="radio"
+                       label="JGLOBAL_FIELDSET_IMAGE_OPTIONS"
+                       default="1"
+                       class="btn-group btn-group-yesno">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="products_changefreq" type="list" default="weekly"
+                       label="PLG_JLSITEMAP_RADICALMART_PARAMS_CHANGEFREQ"
+                       showon="products_enable:1">
+                    <option value="always">always</option>
+                    <option value="hourly">hourly</option>
+                    <option value="daily">daily</option>
+                    <option value="weekly">weekly</option>
+                    <option value="monthly">monthly</option>
+                    <option value="yearly">yearly</option>
+                    <option value="never">never</option>
+                </field>
+                <field name="products_priority" type="list"
+                       default="0.5" label="PLG_JLSITEMAP_RADICALMART_PARAMS_PRIORITY"
+                       showon="products_enable:1">
+                    <option value="0.0">0.0</option>
+                    <option value="0.1">0.1</option>
+                    <option value="0.2">0.2</option>
+                    <option value="0.3">0.3</option>
+                    <option value="0.4">0.4</option>
+                    <option value="0.5">0.5</option>
+                    <option value="0.6">0.6</option>
+                    <option value="0.7">0.7</option>
+                    <option value="0.8">0.8</option>
+                    <option value="0.9">0.9</option>
+                    <option value="1">1</option>
+                </field>
+            </fieldset>
+            <fieldset name="categories" label="PLG_JLSITEMAP_RADICALMART_PARAMS_CATEGORIES">
+                <field name="categories_enable" type="radio"
+                       label="PLG_JLSITEMAP_RADICALMART_PARAMS_ENABLE"
+                       default="1"
+                       class="btn-group btn-group-yesno">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field
+                        name="categories_include"
+                        type="categories"
+                        label="PLG_JLSITEMAP_RADICALMART_PARAMS_CATEGORIES_INCLUDE"
+                        filter="integer"
+                        layout="joomla.form.field.list-fancy-select"
+						multiple="true"
+                        showon="categories_enable:1">
+                    <option value="1">JGLOBAL_ROOT_PARENT</option>
+                </field>
+                <field
+                        name="categories_exclude"
+                        type="categories"
+                        label="PLG_JLSITEMAP_RADICALMART_PARAMS_CATEGORIES_EXCLUDE"
+                        filter="integer"
+                        layout="joomla.form.field.list-fancy-select"
+						multiple="true"
+                        showon="categories_enable:1">
+                </field>
+                <field name="categories_images_enable" type="radio"
+                       label="JGLOBAL_FIELDSET_IMAGE_OPTIONS"
+                       default="1"
+                       class="btn-group btn-group-yesno">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="categories_changefreq" type="list" default="weekly"
+                       label="PLG_JLSITEMAP_RADICALMART_PARAMS_CHANGEFREQ"
+                       showon="categories_enable:1">
+                    <option value="always">always</option>
+                    <option value="hourly">hourly</option>
+                    <option value="daily">daily</option>
+                    <option value="weekly">weekly</option>
+                    <option value="monthly">monthly</option>
+                    <option value="yearly">yearly</option>
+                    <option value="never">never</option>
+                </field>
+                <field name="categories_priority" type="list"
+                       default="0.5" label="PLG_JLSITEMAP_RADICALMART_PARAMS_PRIORITY"
+                       showon="categories_enable:1">
+                    <option value="0.0">0.0</option>
+                    <option value="0.1">0.1</option>
+                    <option value="0.2">0.2</option>
+                    <option value="0.3">0.3</option>
+                    <option value="0.4">0.4</option>
+                    <option value="0.5">0.5</option>
+                    <option value="0.6">0.6</option>
+                    <option value="0.7">0.7</option>
+                    <option value="0.8">0.8</option>
+                    <option value="0.9">0.9</option>
+                    <option value="1">1</option>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+</extension>

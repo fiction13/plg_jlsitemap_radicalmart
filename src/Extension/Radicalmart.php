@@ -174,7 +174,12 @@ class Radicalmart extends CMSPlugin
 		if ($this->params->get('categories_include'))
 		{
 			$model->setState('filter.item_id', $this->params->get('categories_include'));
-			$model->setState('filter.item_id.include', $this->params->get('categories_exclude', false));
+
+			// Check exclude
+			if ($this->params->get('categories_exclude'))
+			{
+				$model->setState('filter.item_id.include', $this->params->get('categories_exclude', false));
+			}
 		}
 
 		return $model->getItems();
